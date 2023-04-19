@@ -1,5 +1,7 @@
 package com.learning.relationships.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,6 +10,8 @@ import java.util.Collection;
 
 @Data
 @Entity
+@Builder
+@AllArgsConstructor
 @Table(name = "category")
 @NoArgsConstructor
 public class Category {
@@ -24,52 +28,4 @@ public class Category {
     private Collection<Book> book;
     @Column(name = "category")
     private long category;
-
-    public Category(Long id, Category parent, Collection<Category> children, Collection<Book> book, long category) {
-        this.id = id;
-        this.parent = parent;
-        this.children = children;
-        this.book = book;
-        this.category = category;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Category getParent() {
-        return parent;
-    }
-
-    public void setParent(Category parent) {
-        this.parent = parent;
-    }
-
-    public Collection<Category> getChildren() {
-        return children;
-    }
-
-    public void setChildren(Collection<Category> children) {
-        this.children = children;
-    }
-
-    public Collection<Book> getBook() {
-        return book;
-    }
-
-    public void setBook(Collection<Book> book) {
-        this.book = book;
-    }
-
-    public long getCategory() {
-        return category;
-    }
-
-    public void setCategory(long category) {
-        this.category = category;
-    }
 }
